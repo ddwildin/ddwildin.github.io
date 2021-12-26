@@ -28,7 +28,7 @@ header nav ul li {
     margin: 10px;
     text-decoration: underline;
 }
-.title-container {
+.first-container {
     width: 1200px;
     height: 700px;
     background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-mission-background.jpg');
@@ -40,7 +40,7 @@ header nav ul li {
     align-items: center;
 }
 
-.title-container div {
+.first-container div {
     background-color: black;
     width: 100%;
     text-align: center;
@@ -64,4 +64,31 @@ header nav ul li {
 }
 .images-container figcaption {
     margin-top: 10px;
+}
+.third-container {
+    width: 1200px;
+    height: 500px;
+    background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-locations-background.jpg');
+    background-size:cover;
+    margin: 69px auto;
+    overflow: hidden;  
+    text-align: center;
+}
+.locations-container {
+    display: flex;
+    justify-content: space-around;
+}
+.locations-container div {
+    background-color: black;
+    width: 300px;
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.fourth-container {
+    text-align: center;
+}
+footer {
+    text-align: left;
+    margin-left: 20px;
 }
