@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap');
+
+html {
+    font-size: 18px;
+    font-family: "Sora";
+    background-color: #222831;
+    color: #EEEEEE;
+}
+header h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+header ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem;
+}
+header ul li {
+    font-size: 1.5rem;
+}
+
+header ul li a {
+    color: #00ADB5;
+}
+
+#purpose {
+    height: 400px;
+    background-image: url('../images/background.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+
+#purpose img {
+    max-height: 100%;
+    width: 100%;
+}
+.purpose-card {
+    background-color: #222831;
+    width: 100%;
+    opacity: .8;
+}
+h2 {
+    font-size: 2rem;
+    margin: 1rem;
+}
+h3 {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+h2, p {
+    padding: .7rem;
+    text-align: center;
+}
+#teachers {
+    height: 400px;
+}
+.images {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+figure {
+    max-height: 200px;
+    width: 200px;
+    margin: 1rem;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+
+figcaption {
+    margin-top: .5rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin: 2rem;
+}
+
+
+
+
