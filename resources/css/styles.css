@@ -80,3 +80,12 @@ p {
         overflow: hidden;
     }
 }
+
+#battleships p, #excursion p, #teacozy p, #fotomatic p, #companyhomepage p, #responsiveclub p {
+    display: none;
+    color: white;
+    border: 1px dotted white;
+    margin: 2rem auto;
+    width: 20%;
+    padding: 1rem;
+}
