@@ -38,6 +38,9 @@ p {
     display: inline-block;
     max-width: 45%;
     margin-right: 4%;
+    height: 100%;
+    vertical-align: top;
+    text-align: justify;
 }
 .about-me img {
     max-width: 50%;
