@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync')({sigint: true});
+const prompt = require('prompt-sync')({ sigint: true });
 
 const hat = '^';
 const hole = 'O';
@@ -8,7 +8,7 @@ const pathCharacter = '*';
 class Field {
     constructor(field) {
         this._field = field;
-        this._location = {r: 0, c: 0};
+        this._location = { r: 0, c: 0 };
     }
     print() {
         this._field[this._location.r][this._location.c] = pathCharacter;
@@ -20,41 +20,61 @@ class Field {
         pos1.r = pos2.r;
         pos1.c = pos2.c;
     }
-    ask(direction) {
-        grid.print();
-        direction = prompt('Which direction?');
-        let newPosition = {};
-        let originalPosition = {};
-        this.copyPosition(newPosition, this._location);
-        this.copyPosition(originalPosition, this._location);
-        while (newPosition.r === originalPosition.r && newPosition.c == originalPosition.c) {
+    checkDirection(direction) {
+        if (direction != 'u' && direction != 'd' && direction != 'l' && direction != 'r') {
+            return false;
+        }
+        else {
             switch (direction) {
                 case 'u':
-                    newPosition.r = this._location.r-1;
-                    newPosition.c = this._location.c;
+                    if (this._location.r - 1 < 0) {
+                        return false;
+                    }
                     break;
                 case 'd':
-                    newPosition.r = this._location.r+1;
-                    newPosition.c = this._location.c;
+                    if (this._location.r + 1 > this._field.length - 1) {
+                        return false;
+                    }
                     break;
                 case 'l':
-                    newPosition.r = this._location.r;
-                    newPosition.c = this._location.c-1;
+                    if (this._location.c - 1 < 0) {
+                        return false;
+                    }
                     break;
                 case 'r':
-                    newPosition.r = this._location.r;
-                    newPosition.c = this._location.c+1;
+                    if (this._location.c + 1 > this._field[0].length - 1) {
+                        return false;
+                    }
                     break;
-            }
-            if (newPosition.r < 0 || newPosition.r > this._field.length -1 || newPosition.c < 0 || newPosition.c > this._field[0].length-1) {
-                this.copyPosition(newPosition, this._location);
-                grid.print();
-                direction = prompt("Can't go that way.  Which direction?");
-            }
-            else {
-                 this.copyPosition(this._location, newPosition);
+
             }
         }
+        return true;
+    }
+    moveInDirection(direction) {
+        switch (direction) {
+            case 'u':
+                this.copyPosition(this._location, { r: this._location.r - 11, c: this._location.c });
+                break;
+            case 'd':
+                this.copyPosition(this._location, { r: this._location.r + 1, c: this._location.c });
+                break;
+            case 'l':
+                this.copyPosition(this._location, { r: this._location.r, c: this._location.c - 1 });
+                break;
+            case 'r':
+                this.copyPosition(this._location, { r: this._location.r, c: this._location.c + 1 });
+                break;
+        }
+    }
+    askDirection() {
+        grid.print();
+        let direction = prompt('Which direction?');
+        while (!this.checkDirection(direction)) {
+            grid.print();
+            direction = prompt("Can't go that way.  Which direction?");
+        }
+        this.moveInDirection(direction);
     }
     checkWinOrLose() {
         if (this._field[this._location.r][this._location.c] === hat) {
@@ -69,7 +89,7 @@ class Field {
     }
     static generateField(height, width, percentageHoles) {
         let result = [];
-        const numHoles = Math.floor(height*width*percentageHoles/100);
+        const numHoles = Math.floor(height * width * percentageHoles / 100);
         const fieldRow = [];
         for (let i = 0; i < width; i++) { // create field character rows
             fieldRow[i] = fieldCharacter;
@@ -79,7 +99,7 @@ class Field {
         }
         // next we add random holes
         for (let i = 0; i < numHoles; i++) { // iterate number of holes
-            let foundHole = false; 
+            let foundHole = false;
             while (!foundHole) {
                 const row = Math.floor(Math.random() * height); // randomize row
                 const column = Math.floor(Math.random() * width); // randomize column
@@ -88,10 +108,10 @@ class Field {
                     foundHole = true; // exit the loop
                 }
             }
-            
+
         }
         // finally we add the hat
-        let foundEmptySpace = false; 
+        let foundEmptySpace = false;
         while (!foundEmptySpace) {
             const row = Math.floor(Math.random() * height); // randomize row
             const column = Math.floor(Math.random() * width); // randomize column
@@ -105,10 +125,10 @@ class Field {
     }
 }
 
-grid = new Field(Field.generateField(10, 10, 25));
+grid = new Field(Field.generateField(5, 5, 25));
 let gameStatus = 'continue';
 while (gameStatus === 'continue') {
-    grid.ask();
+    grid.askDirection();
     gameStatus = grid.checkWinOrLose();
 }
 if (gameStatus == 'win') {
