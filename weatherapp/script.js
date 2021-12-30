@@ -23,10 +23,12 @@ try {
 }
 
 const processJson = (data) => {
+    //http://openweathermap.org/img/wn/10d@2x.png
     const htmlToInsert = 
     `
     <h2>Weather in ${cityInput.value}</h2>
     <ul>
+    <li><img src='http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png'></li>
     <li>${data.weather[0].main}</li>
     <li>Current temperature: ${Math.floor(data.main.temp - 273.15)}</li>
     `;
