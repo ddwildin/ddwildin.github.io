@@ -84,7 +84,7 @@ p {
     }
 }
 
-#battleships p, #excursion p, #teacozy p, #fotomatic p, #companyhomepage p, #responsiveclub p {
+#battleships p, #excursion p, #teacozy p, #fotomatic p, #companyhomepage p, #responsiveclub p, #weatherapp p {
     display: none;
     color: white;
     border: 1px dotted white;
