@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mini-reddit/static/css/main.686e10dd.css",
+    "main.js": "/mini-reddit/static/js/main.51943761.js",
+    "index.html": "/mini-reddit/index.html",
+    "main.686e10dd.css.map": "/mini-reddit/static/css/main.686e10dd.css.map",
+    "main.51943761.js.map": "/mini-reddit/static/js/main.51943761.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.686e10dd.css",
+    "static/js/main.51943761.js"
+  ]
+}

@@ -1,7 +1,7 @@
 const submit = document.getElementById('submit');
 const cityInput = document.getElementById('city');
 const url = 'https://api.openweathermap.org/data/2.5/weather';
-const api = '50bd166b0710492b35a785ec627e9fa5';
+const api = process.API_KEY;
 const fetchWeather = async () => {
    
     const city = cityInput.value;
